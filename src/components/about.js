@@ -1,104 +1,137 @@
 import React from 'react';
-import { Grid, Typography,Box,Card, Paper } from '@material-ui/core';
-import Task from '../image/task.png'
-import CardContent from '@material-ui/core/CardContent';
-// import Forbit from '../image/forbit.jpg'
+import { Grid, Typography,Box,Card } from '@material-ui/core';
+import Forbit from '../image/forbiticon.png'
+import { AboutData } from './data';
+import { blueGrey, grey } from '@material-ui/core/colors';
+import Avatar from '@material-ui/core/Avatar'
+// import CSS from './about.css'
+
+
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 
 
-
-
+AOS.init();
 const About = () => {
     return ( 
-//    <Box display="flex" justifyContent="center">
 
-//        <Box display="flex" flexDirection="column" flexGrow="1">
-//             <h1>sdafdsfsaf</h1>
-//             <h1>sdafdsfsaf</h1>
-//             <h1>sdafdsfsaf</h1>
-//        </Box>
 
-//        <Box display="flex" flexGrow="1">
-//        <h1>Jabir</h1>
-//        </Box>
-//    </Box>
+        <Box id="about" display='flex' style={{backgroundColor:blueGrey[100],padding:10}} >
 
-        <Box id="about" display='flex' style={{width:100}}>
+            <Card display="flex" flexDirection="column" flexGrow='1'
+                style={{
+                    padding:5,
+                    width:"30%",
+                    borderRadius:20,
+                    backgroundColor:grey[400],
+                    // backgroundColor:'whitesmoke'
+                    }}
+                    >
 
-            <Box display="flex" flexDirection="column" flexGrow='1'>
-                        <Card style={{backgroundColor:'whitesmoke',borderRadius: 40,height:280, width:400}}>
-                            <CardContent style={{marginTop:50}}>
+                    <Card data-aos="fade-up-right" 
+                            style={{
+                                backgroundColor:'whitesmoke',
+                                height:"60%",
+                                width:"95%", 
+                                borderRadius: 10,
+                                marginTop:10,
+                                marginLeft:12,
+                                }}>
+
+                        <img style={{height:320,marginTop:-30}} src={Forbit}/>
                         
-                                <Typography style={{marginBottom:30,color:"black"}}variant='h2'>Forbit Limited</Typography>
-                                <Typography variant="h5">Shah-Ali Bag, Mirpur-1</Typography>
-                                <Typography variant="h5">Dhaka-1216</Typography>
+                            <Typography style={{marginTop:-20,color:"black"}}variant='h3'>Forbit Limited</Typography>
+                            <Typography variant="h5">Shah-Ali Bag, Mirpur-1</Typography>
+                            <Typography variant="h5">Dhaka-1216</Typography>
 
-                            </CardContent>
-                        </Card>
+                    </Card>
 
-                <Card style={{marginTop:30, borderRadius: 40, height:200,width:400}}>
-                    <CardContent  style={{backgroundColor:'whitesmoke'}}>
-                       
-                        <Card  style={{marginBottom:40, backgroundColor:"grey",width:363}}>
+                    <Card  style={{marginTop:18, marginLeft:12, borderRadius: 20, height:"35%",width:"95%"}}>
+                        
+                        
+                        <Card  style={{marginBottom:40, width:"100%",borderRadius: 20, backgroundColor:'grey'}}>
                         <Typography style={{color:"white"}}variant="h3">Contact Us</Typography>
                         </Card>
 
-                       
-                            <Typography variant="h5">Contact:01710400547</Typography>
-                            <Typography variant="h5">Mail:forbitbd@gmail.com</Typography>
-                        
-                    </CardContent>
-                </Card>
+                    
+                        <Typography variant="h5">Contact:01710400547</Typography>
+                        <Typography variant="h5">Mail:forbitbd@gmail.com</Typography>  
+                            
+                    
+                    </Card>
 
-            </Box>
+            </Card>
 
+
+
+
+
+
+            <Card container display="flex" 
+                style={{
+                    width:"70%",
+                    backgroundColor:'whitesmoke',
+                    borderRadius: 20,
+                    marginLeft:10,
+                    }} 
+                    >
+                        <Card style={{width:"100%", height:80, backgroundColor:"grey"}}>
+
+                            <Typography variant="h3" style={{color:"white",marginTop:10}}>About Us</Typography>
+
+                        </Card>
+
+
+                        <Grid container spacing={2} style={{padding:10,backgroundColor:grey[400]}}>
+                            {AboutData.map((item,index)=><Grid item xs={4} >
+                            <Card data-aos="fade-up-right"
+                            style={{
+                                backgroundColor:'whitesmoke',
+                                borderRadius: 10,
+                                height:250,
+                                padding:20,
+                                }}>
+
+                            <Avatar  img src={item.image} style={{
+                                backgroundColor: "red",
+                                borderRadius: 120,
+                                width: 150,
+                                height: 150,
+                                marginLeft:50,
+                                marginBottom:20,
+                               
+                                }} />
+
+
+                            <Typography style={{color:grey[900]}}variant='h5'>{item.name}</Typography>
+                            <Typography variant="h8">{item.title}</Typography>
+                            </Card>
+                            </Grid>)}
+                        </Grid>
+                   
+
+                
+            </Card>
 
             
-              
+
+        </Box>
 
 
-               {/* <Box>
-               <Grid container display="flex" flexDirection="column" flexGrow='1' style={{width:"100%"}}>
-                        <Grid xs={4}>
-                            <Box display="flex" flexDirection="column"  justifyContent="center">
+
+        
 
 
-                                <Typography variant='h4'>About Us</Typography>
 
-                                <Box display="flex" style={{width:"100%"}} > 
-                                   <Card  >
-                                       
-                                            <img src={Task}/>
-                                            <Typography>Jabir</Typography>
-                                      
-                                    </Card>
-                                   <Card >
-                                       
-                                            <img src={Task}/>
-                                            <Typography>Jabir</Typography>
-                                       
-                                    </Card>
 
-                                    <Card >
-                                        
-                                            <img src={Task}/>
-                                            <Typography>Jabir</Typography>
-                                       
-                                    </Card>
-
-                                </Box>
-                            </Box>
-                        </Grid>
-
-                  </Grid>
-
-               </Box> */}
 
            
-
-            
-        </Box>
        
+
+               
+
+
      );
 }
  

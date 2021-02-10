@@ -14,10 +14,12 @@ const Main = () => {
             <Navbar/>
             <MySlider/>
             <Feature/>
-            <Screenshot/>
             <Management/>
+            <Screenshot/>
             <About/>
             <Footer  />
+            
+           
         </div>
      );
 }

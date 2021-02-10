@@ -1,0 +1,8 @@
+.footer{
+    background-image: url(../image/footer.jpg);
+    background-repeat: no-repeat;
+    height: 100vh; 
+    background-size: 1400px 600px;
+    background-position: 50% 50%;
+    
+}

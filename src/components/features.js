@@ -1,7 +1,11 @@
 import { Grid, Typography,Box,Card, Button } from '@material-ui/core';
-import { grey } from "@material-ui/core/colors";
 import React from 'react';
 import {FeatureData} from './data'
+
+
+import "aos/dist/aos.css";
+import AOS from "aos";
+import { grey } from '@material-ui/core/colors';
 
 
 
@@ -9,24 +13,24 @@ import {FeatureData} from './data'
 
 // console.log(FeatureData)
 
-
+AOS.init();
 
 const Feature = () => {
     return(
-        <Box>
-            <Box>
-                <Typography style={{color:'orange'}} variant='h4'>Features</Typography>
+        <Box style={{backgroundColor:grey[400]}}>
+            <Box  id="features">
+                <Typography style={{color:grey[900],padding:20}} variant='h3'>Features</Typography>
             </Box>
             <Grid container display="flex">
                 {FeatureData.map((item,index)=>{
 
 
 return (
-    <Grid item xs={3} key={index} style={{ padding: 10 }}>
-      <Card id="features" 
+    <Grid item xs={3} key={index} style={{ padding: 25 }}>
+      <Card  data-aos={item.animation} data-aos="zoom-out"
         style={{
           marginTop: 10,
-          borderRadius: 40,
+          borderRadius: 10,
           height: 250,
           width: "100%",
           backgroundColor: grey[200],
@@ -37,26 +41,27 @@ return (
           <img
             src={item.image}
             style={{
-            //   backgroundColor: "red",
+            //   backgroundColor: "red",\
+            marginTop:-15,
               borderRadius: 10,
-              margin: 10,
-              width: 280,
-              height: 190,
-              marginTop:20
+              padding:20,
+              height: 200,
+              width:200,
+              
             }}
           ></img>
         </Box>
         <Typography
-          variant="body1"
+          variant="h5"
           style={{
             textAlign: "center",
             fontWeight: "bold",
-            marginTop:3,
-            color:'orangered'
+            
+           
             
           }}
         >
-        <Button style={{marginTop:-10}}>  {item.title}</Button>
+        <Button style={{marginTop:-20,color:grey[900]}}>  {item.title}</Button>
         </Typography>
        
       </Card>

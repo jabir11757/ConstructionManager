@@ -1,6 +1,7 @@
 import { Box, Grid, Typography,Card } from '@material-ui/core';
 import { grey } from "@material-ui/core/colors";
-import React, { Fragment } from "react";
+// import React, { Fragment } from "react";
+import React from "react";
 import { ManagementData } from './data';
 
 
@@ -11,7 +12,7 @@ import AOS from "aos";
 AOS.init();
 
 
-const Management = ({  }) => {
+const Management = () => {
     return(
       <Box>
         <Grid>
@@ -22,23 +23,26 @@ return (
   <Box
   id={item.title}
   data-aos={item.animation}
+  data-aos="fade-down-right"
   display="flex"
   style={{
     padding: 10,
-    color:'orange',
-    // backgroundColor: index % 2 === 0 ? grey[50] : grey[300],
+    color:grey[900],
+    backgroundColor: index % 2 === 0 ? grey[100] : grey[300],
   }}
 >
       <Box
         display="flex"
         flexGrow="1"
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-center"
         style={{ maxWidth: "50%", minWidth: "50%" }}
         order={2}
         justifyContent="center"
         alignItems="center" 
       >
         <Card display="flex" style={{ width: "100%" }}>
-          {" "}
+         
           <img src={item.image} style={{ height: 300 }} />
         </Card>
       </Box>
@@ -49,13 +53,13 @@ return (
         flexGrow="1"
         alignItems="center"
         justifyContent="center"
-        style={{ padding: 10 }}
+        style={{ padding:20 }}
         order={index % 2 === 0 ? 3 : 1}
       >
        <Card style={{height:305}}>
        <Typography
-          variant="h5"
-          style={{ color:'orange' ,marginBottom:60}}
+          variant="h4"
+          style={{ color:grey[900] ,padding:30}}
         >
           {item.title}
         </Typography>
@@ -63,7 +67,8 @@ return (
           variant="body1"
           style={{
             marginTop: 10,
-            color: index % 2 === 0 ? grey[600] : grey[800],
+            padding:20,
+            color:"black",
           }}
         >
           {item.description}
